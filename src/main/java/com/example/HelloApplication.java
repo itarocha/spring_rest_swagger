@@ -62,7 +62,7 @@ public class HelloApplication {
         ApplicationContext ctx = SpringApplication.run(HelloApplication.class, args);
     }
     
-    //@Bean
+    @Bean
     public CommandLineRunner demo(){
     	
     	return (args) -> {
@@ -77,14 +77,14 @@ public class HelloApplication {
     					Pessoa p = new Pessoa();
     					p.setNome(o.name.first);
     					p.setSobrenome(o.name.last);
-    					p.setEndereco(o.location.state);
+    					p.setEndereco(o.location.street);
     					p.setCidade(o.location.city);
     					p.setEstado(o.location.state);
     					p.setCep(o.location.postcode);
     					p.setEmail(o.email);
     					pessoas.save(p);
     					
-    					System.out.println(i + o.name.first + " " + o.email + " "+ o.location.street );
+    					System.out.println(i + " - " + o.name.first + " " + o.email + " "+ o.location.street );
     				}
     			} catch(Exception e){
     				
