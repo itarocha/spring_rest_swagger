@@ -68,7 +68,7 @@ public class HelloApplication {
     	return (args) -> {
     		RestTemplate template = new RestTemplate();
     		String uri = "https://randomuser.me/api";
-    		for (int i = 1; i <= 1090; i++ ){
+    		for (int i = 1; i <= 1500; i++ ){
     			try {
     				RandomUserApi resultado = template.getForObject(uri, RandomUserApi.class);
     				if ((resultado != null) && (resultado.results.length > 0)){
@@ -84,7 +84,7 @@ public class HelloApplication {
     					p.setEmail(o.email);
     					pessoas.save(p);
     					
-    					System.out.println(o.name.first + " " + o.email + " "+ o.location.street );
+    					System.out.println(i + o.name.first + " " + o.email + " "+ o.location.street );
     				}
     			} catch(Exception e){
     				
@@ -103,7 +103,7 @@ public class HelloApplication {
     @Bean
     public Docket petApi() {
         return new Docket(DocumentationType.SWAGGER_2)
-                .groupName("full-petstore-api")
+                //.groupName("full-petstore-api")
                 .apiInfo(apiInfo())
                 .select()
                 .paths(petstorePaths())

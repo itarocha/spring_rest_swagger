@@ -6,7 +6,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.Size;
 
-@Entity(name="tb_pet")
+@Entity(name="pet")
 public class Pet {
 	
 	@Id
